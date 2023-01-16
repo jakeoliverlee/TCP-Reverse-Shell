@@ -40,7 +40,6 @@ def connect(ip):
             
 def main():
     ip = socket.gethostbyname("jakeoliverlee.ddns.net")
-    
     connect(ip)
     
 main()
